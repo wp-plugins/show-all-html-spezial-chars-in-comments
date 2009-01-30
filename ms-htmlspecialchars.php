@@ -3,7 +3,7 @@
 Plugin Name: msHTMLspecialChars
 Plugin URI: http://www.zauberpage.de/show-all-html-spezial-chars-in-comments.html
 Description: Show all HTML special chars in your comments
-Version: 0.2
+Version: 0.2.1
 Author: Maik Schindler
 Author URI: http://www.zauberpage.de
 */
@@ -30,7 +30,8 @@ function ms_wp_dashboard_setup() {
 /**
  * view widget in dashbord
  */
-add_action('wp_dashboard_setup', 'ms_wp_dashboard_setup');
+if(get_bloginfo('version') >= '2.7')
+	add_action('wp_dashboard_setup', 'ms_wp_dashboard_setup');
 
 /**
  * Display recent comments dashboard widget content.
