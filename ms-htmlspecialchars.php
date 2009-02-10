@@ -3,7 +3,7 @@
 Plugin Name: msHTMLspecialChars
 Plugin URI: http://www.zauberpage.de/show-all-html-spezial-chars-in-comments.html
 Description: Show all HTML special chars in your comments
-Version: 0.2.1
+Version: 0.2.2
 Author: Maik Schindler
 Author URI: http://www.zauberpage.de
 */
@@ -107,7 +107,7 @@ function ms_wp_dashboard_recent_comments_row( &$comment, $show_date = true ) {
 	if ( current_user_can('edit_post', $comment->comment_post_ID) ) {
 		$actions['approve'] = "<a href='$approve_url' class='dim:the-comment-list:comment-$comment->comment_ID:unapproved:e7e7d3:e7e7d3:new=approved vim-a' title='" . __( 'Approve this comment' ) . "'>" . __( 'Approve' ) . '</a>';
 		$actions['unapprove'] = "<a href='$unapprove_url' class='dim:the-comment-list:comment-$comment->comment_ID:unapproved:e7e7d3:e7e7d3:new=unapproved vim-u' title='" . __( 'Unapprove this comment' ) . "'>" . __( 'Unapprove' ) . '</a>';
-		$actions['edit'] = '<a href="comment.php?action=editcomment&amp;c={$comment->comment_ID}" title="'. __('Edit comment') .'">'. __('Edit') .'</a>';
+		$actions['edit'] = "<a href='comment.php?action=editcomment&amp;c=$comment->comment_ID' title='". __('Edit comment') ."'>". __('Edit') ."</a>";
 		$actions['quickedit'] = '<a onclick="commentReply.open(\''.$comment->comment_ID.'\',\''.$comment->comment_post_ID.'\',\'edit\');return false;" class="vim-q" title="'.__('Quick Edit').'" href="#">' . __('Quick&nbsp;Edit') . '</a>';
 
 		$actions['reply'] = '<a onclick="commentReply.open(\''.$comment->comment_ID.'\',\''.$comment->comment_post_ID.'\');return false;" class="vim-r hide-if-no-js" title="'.__('Reply to this comment').'" href="#">' . __('Reply') . '</a>';
